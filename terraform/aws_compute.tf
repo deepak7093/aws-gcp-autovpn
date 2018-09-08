@@ -58,7 +58,7 @@ resource "aws_instance" "aws-vm" {
     "${aws_security_group.aws-allow-internet.id}",
   ]
 
-  # user_data = "${replace("${replace("${file("vm_userdata.sh")}", "<EXT_IP>", "${google_compute_address.gcp-ip.address}")}", "<INT_IP>", "${var.gcp_vm_address}")}"
+  user_data = "${replace("${replace("${file("vm_userdata.sh")}", "<EXT_IP>", "${google_compute_address.gcp-ip.address}")}", "<INT_IP>", "${var.gcp_vm_address}")}"
 
   tags {
     Name = "aws-vm-${var.aws_region}"

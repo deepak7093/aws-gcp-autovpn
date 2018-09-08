@@ -46,7 +46,7 @@ resource "google_compute_instance" "gcp-vm" {
 
     access_config {
       # Static IP
-      # nat_ip = "${google_compute_address.gcp-ip.address}"
+      nat_ip = "${google_compute_address.gcp-ip.address}"
     }
   }
 
